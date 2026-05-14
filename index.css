@@ -1,0 +1,97 @@
+   body {
+            background-color: #05050a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Ambient Glow behind the circle */
+        .glow-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        /* The Neon Circle Animation */
+        .jarvis-circle {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            border: 4px solid transparent; /* Changed to transparent for gradient borders */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.2);
+            transition: all 0.5s ease;
+            background: linear-gradient(#05050a, #05050a) padding-box,
+                        linear-gradient(135deg, rgba(6, 182, 212, 0.5), rgba(6, 182, 212, 0.1)) border-box;
+        }
+
+        /* State 1: Idle Mode (Slow continuous rotation) */
+        .circle-idle {
+            animation: spin 8s linear infinite;
+        }
+
+        /* State 2: User Listening Mode (Pulsing / Breathing) */
+        .circle-listening {
+            animation: spin 3s linear infinite, pulse 1.5s ease-in-out infinite alternate;
+            box-shadow: 0 0 40px rgba(16, 185, 129, 0.6), 0 0 80px rgba(16, 185, 129, 0.3);
+            background: linear-gradient(#05050a, #05050a) padding-box,
+                        linear-gradient(135deg, #10b981, #059669, #34d399) border-box;
+        }
+
+        /* State 3: AI Thinking/Speaking Mode (Fast energetic rotation) */
+        .circle-speaking {
+            animation: spin 1.5s linear infinite;
+            box-shadow: 0 0 50px rgba(59, 130, 246, 0.7), 0 0 100px rgba(168, 85, 247, 0.4);
+            background: linear-gradient(#05050a, #05050a) padding-box,
+                        linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899) border-box;
+        }
+
+        .jarvis-3d-core {
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+
+            /* 3D Sphere Effect using Radial Gradient */
+            background: radial-gradient(circle at 35% 35%,
+                    rgba(255, 255, 255, 0.8) 0%,
+                    rgba(6, 182, 212, 0.8) 40%,
+                    rgba(8, 51, 68, 0.9) 70%,
+                    rgba(0, 0, 0, 1) 100%);
+
+            /* Neon Glow around the 3D core */
+            box-shadow:
+                inset -5px -5px 15px rgba(0, 0, 0, 0.8),
+                inset 5px 5px 15px rgba(255, 255, 255, 0.4),
+                0 0 40px rgba(6, 182, 212, 0.6),
+                0 0 80px rgba(6, 182, 212, 0.3);
+
+            /* Subtle breathing animation */
+            animation: jarvisPulse 3s infinite ease-in-out;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.98);
+            }
+            100% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes jarvisPulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.9;
+            }
+            50% {
+                transform: scale(1.03);
+                opacity: 1;
+            }
+        }

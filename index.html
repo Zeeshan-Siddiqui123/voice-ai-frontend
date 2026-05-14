@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarvis Voice Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body class="h-screen flex flex-col justify-center items-center overflow-hidden">
+    
+    <div class="absolute top-16 text-center">
+        <h1 class="text-white/40 text-xs tracking-[0.2em] uppercase font-semibold">System Status</h1>
+        <p id="statusDisplay" class="text-cyan-400 font-medium text-lg mt-1 tracking-wide">Say "Hey Jarvis" to Start</p>
+    </div>
+
+    <div class="glow-container flex justify-center items-center">
+        <div id="jarvisCircle" class="jarvis-circle circle-idle">
+            <div class="jarvis-3d-core"></div>
+        </div>
+    </div>
+
+    <script type="module" src="./script.js"></script>
+</body>
+
+</html>
