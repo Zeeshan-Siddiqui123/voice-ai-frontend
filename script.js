@@ -49,7 +49,7 @@ if (recognition) {
                 synth.cancel(); // Stop any pending speech
 
                 // Initial welcome audio trigger
-                speakText("Yes sir, Jarvis online. How can I help you?");
+                speakText("Yes Boss, Jarvis online. How can I help you?");
             }
             return;
         }
@@ -57,6 +57,7 @@ if (recognition) {
         // If user says "stop" or "go to sleep", deactivate active mode
         if (transcript === 'stop' || transcript === 'go to sleep' || transcript === 'exit') {
             systemActive = false;
+            synth.cancel();
             speakText("Going to standby mode.");
             return;
         }
@@ -67,7 +68,7 @@ if (recognition) {
             setVisualState('processing');
 
             try {
-                const response = await fetch('https://voice-ai-backend-ashy.vercel.app/chat', {
+                const response = await fetch('http://localhost:3001/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ message: transcript, history: chatHistory })
