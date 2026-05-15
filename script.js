@@ -68,7 +68,7 @@ if (recognition) {
             setVisualState('processing');
 
             try {
-                const response = await fetch('http://localhost:3001/chat', {
+                const response = await fetch('https://voice-ai-backend-ashy.vercel.app/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ message: transcript, history: chatHistory })
